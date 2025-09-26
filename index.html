@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Óptica - Física en Acción</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo">
+                <h1>ÓPTICA EN ACCIÓN</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" onclick="showContent('intro')">INTRODUCCIÓN</a></li>
+                <li><a href="#" onclick="showContent('refraccion')">ACTIVIDADES</a></li>
+                <li><a href="#" onclick="showContent('juego-palabras')">JUEGO</a></li>
+                <li><a href="#" onclick="showContent('juego-plataformas')">AVENTURA</a></li>
+                <li><a href="#" onclick="showContent('difraccion')">VIDEOS</a></li>
+                <li><a href="#" onclick="showContent('aplicaciones')">APLICACIONES</a></li>
+            </ul>
+            <div class="nav-search">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>ÓPTICA GEOMÉTRICA</h2>
+            <p>"La luz revela caminos ocultos, la óptica geométrica explica su viaje"</p>
+            <button class="hero-btn" onclick="showContent('intro')">EXPLORAR</button>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Tarjetas de temas -->
+        <div class="topics-grid">
+            <div class="topic-card" onclick="showContent('intro')">
+                <i class="fas fa-lightbulb"></i>
+                <h3>INTRODUCCIÓN</h3>
+                <p>Conceptos básicos de la óptica</p>
+            </div>
+            <div class="topic-card" onclick="showContent('refraccion')">
+                <i class="fas fa-sync-alt"></i>
+                <h3>REFLEXIÓN Y REFRACCIÓN</h3>
+                <p>Leyes y principios fundamentales</p>
+            </div>
+            <div class="topic-card" onclick="showContent('juego-palabras')">
+                <i class="fas fa-font"></i>
+                <h3>JUEGO DE PALABRAS</h3>
+                <p>Completa las oraciones</p>
+            </div>
+            <div class="topic-card" onclick="showContent('juego-plataformas')">
+                <i class="fas fa-gamepad"></i>
+                <h3>AVENTURA ÓPTICA</h3>
+                <p>Supera obstáculos</p>
+            </div>
+            <div class="topic-card" onclick="showContent('difraccion')">
+                <i class="fas fa-wave-square"></i>
+                <h3>DIFRACCIÓN</h3>
+                <p>Fenómenos ondulatorios de la luz</p>
+            </div>
+            <div class="topic-card" onclick="showContent('aplicaciones')">
+                <i class="fas fa-microscope"></i>
+                <h3>APLICACIONES</h3>
+                <p>Instrumentos y usos de la óptica</p>
+            </div>
+        </div>
+
+        <!-- Ventana de Introducción -->
+        <div id="intro" class="content-window active-content">
+            <div class="content-header">
+                <h2>INTRODUCCIÓN A LA ÓPTICA</h2>
+                <button class="back-btn" onclick="showContent('none')">Volver</button>
+            </div>
+            <div class="content-body">
+                <div class="content-text">
+                    <p>La óptica es la disciplina que estudia el comportamiento de la luz y sus interacciones con la materia. Analiza la luz visible, los rayos ultravioleta e infrarrojos, y otras formas de radiación electromagnética como los rayos X.</p>
+                    <p>Los fenómenos ópticos se describen clásicamente en la óptica geométrica como rayos que se desvían o reflejan. En contraste, la óptica física considera la luz desde una perspectiva ondulatoria, incluyendo fenómenos como la difracción y la interferencia.</p>
+                    <p>La comprensión de la óptica nos permite entender fenómenos naturales como los arcoíris y espejismos, y ha impulsado el desarrollo de instrumentos esenciales en medicina, ingeniería y astronomía.</p>
+                </div>
+                <div class="content-media">
+                    <img src="img/intro.jpg" alt="Introducción a la óptica" class="content-img">
+                    <div class="video-container">
+                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/FTRHk4ffpOs" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-section">
+                <h3>PREGUNTAS INTERACTIVAS</h3>
+                <p>¿Qué estudia la óptica?</p>
+                <div class="options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'intro', 'correct')">El comportamiento de la luz y sus interacciones con la materia</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'intro', 'incorrect')">Solo la luz visible</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'intro', 'incorrect')">Exclusivamente los rayos X</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'intro', 'incorrect')">Solo los fenómenos de reflexión</button>
+                </div>
+                <p id="feedback-intro" class="feedback"></p>
+
+                <p>¿Qué diferencia la óptica geométrica de la óptica física?</p>
+                <div class="options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'intro2', 'incorrect')">La geométrica estudia solo colores</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'intro2', 'correct')">La geométrica considera rayos de luz, la física considera ondas</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'intro2', 'incorrect')">La física es más antigua que la geométrica</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'intro2', 'incorrect')">No hay diferencia significativa</button>
+                </div>
+                <p id="feedback-intro2" class="feedback"></p>
+            </div>
+        </div>
+
+        <!-- Ventana de Reflexión y Refracción -->
+        <div id="refraccion" class="content-window">
+            <div class="content-header">
+                <h2>REFLEXIÓN Y REFRACCIÓN DE LA LUZ</h2>
+                <button class="back-btn" onclick="showContent('none')">Volver</button>
+            </div>
+            <div class="content-body">
+                <div class="content-text">
+                    <h3>Reflexión de la Luz</h3>
+                    <p>La reflexión de la luz ocurre cuando los rayos de luz rebotan en una superficie. Si la superficie es rugosa, la luz se dispersa; si es lisa, se refleja claramente siguiendo reglas precisas.</p>
+                    <h4>Leyes de la Reflexión</h4>
+                    <ul>
+                        <li>El rayo incidente, el rayo reflejado y la línea perpendicular a la superficie están en un mismo plano.</li>
+                        <li>El ángulo de incidencia es igual al ángulo de reflexión.</li>
+                    </ul>
+                    
+                    <h3>Refracción de la Luz</h3>
+                    <p>La refracción es el cambio de dirección de un rayo de luz al pasar de un medio a otro con diferente densidad óptica, como del aire al agua. Esto se debe a la variación de la velocidad de la luz en cada medio.</p>
+                    <h4>Ley de Snell</h4>
+                    <p>Willebrord Snell formuló la Ley de Snell en el siglo XVII, que establece que el cociente entre el seno del ángulo de incidencia y el seno del ángulo de refracción es constante para dos medios dados.</p>
+                    
+                    
+                    <table class="refraction-table">
+                        <tr>
+                            <th>Material</th>
+                            <th>Índice de Refracción</th>
+                            <th>Velocidad de la Luz (m/s)</th>
+                        </tr>
+                        <tr>
+                            <td>Aire</td>
+                            <td>1,000293</td>
+                            <td>2,89792456 × 10⁶</td>
+                        </tr>
+                        <tr>
+                            <td>Agua dulce</td>
+                            <td>1,333</td>
+                            <td>2,25 × 10⁶</td>
+                        </tr>
+                        <tr>
+                            <td>Diamante</td>
+                            <td>2,419</td>
+                            <td>1,24 × 10⁶</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="content-media">
+                    <img src="img/Captura de pantalla 2025-09-16 122530.jpg" alt="Refracción de la luz" class="content-img">
+                    <img src="img/ley de snell.jpg" alt="Ley de Snell" class="content-img">
+                    <div class="video-container">
+                        <iframe width="100%" height="250" src="img/Reflexion y refraccion.mp4" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-section">
+                <h3>PREGUNTAS INTERACTIVAS</h3>
+                <p>¿Qué establece la primera ley de la reflexión?</p>
+                <div class="options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'reflex1', 'correct')">El rayo incidente, reflejado y la normal están en el mismo plano</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'reflex1', 'incorrect')">El ángulo de incidencia es mayor que el de reflexión</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'reflex1', 'incorrect')">La luz siempre se refleja con el mismo color</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'reflex1', 'incorrect')">La reflexión solo ocurre en espejos</button>
+                </div>
+                <p id="feedback-reflex1" class="feedback"></p>
+
+                <p>Según la Ley de Snell, si la luz pasa del aire (n=1) al agua (n=1.33), el rayo refractado:</p>
+                <div class="options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'snell1', 'correct')">Se acerca a la normal</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'snell1', 'incorrect')">Se aleja de la normal</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'snell1', 'incorrect')">No cambia de dirección</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'snell1', 'incorrect')">Sigue la misma trayectoria</button>
+                </div>
+                <p id="feedback-snell1" class="feedback"></p>
+            </div>
+        </div>
+
+        <!-- Ventana de Juego de Palabras -->
+        <div id="juego-palabras" class="content-window">
+            <div class="content-header">
+                <h2>JUEGO DE PALABRAS SOBRE ÓPTICA</h2>
+                <button class="back-btn" onclick="showContent('none')">Volver</button>
+            </div>
+            <div class="content-body">
+                <div class="word-game-container">
+                    <h3>Completa las oraciones con las palabras correctas</h3>
+                    <div class="score-board">
+                        <p>Puntuación: <span id="word-score">0</span>/3</p>
+                    </div>
+                    
+                    <div class="word-game">
+                        <div class="sentence" id="sentence1">
+                            <p>La <span class="word-drop" data-correct="refracción">______</span> es el cambio de dirección de la luz al pasar de un medio a otro.</p>
+                            <div class="word-options">
+                                <span class="word-option" data-value="refracción">refracción</span>
+                                <span class="word-option" data-value="reflexión">reflexión</span>
+                                <span class="word-option" data-value="difracción">difracción</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sentence" id="sentence2">
+                            <p>Los espejos <span class="word-drop" data-correct="convexos">______</span> siempre producen imágenes virtuales, derechas y reducidas.</p>
+                            <div class="word-options">
+                                <span class="word-option" data-value="cóncavos">cóncavos</span>
+                                <span class="word-option" data-value="convexos">convexos</span>
+                                <span class="word-option" data-value="planos">planos</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sentence" id="sentence3">
+                            <p>El fenómeno de <span class="word-drop" data-correct="interferencia">______</span> demuestra la naturaleza ondulatoria de la luz.</p>
+                            <div class="word-options">
+                                <span class="word-option" data-value="refracción">refracción</span>
+                                <span class="word-option" data-value="dispersión">dispersión</span>
+                                <span class="word-option" data-value="interferencia">interferencia</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="check-answers-btn" onclick="checkWordAnswers()">Comprobar respuestas</button>
+                    <button class="reset-game-btn" onclick="resetWordGame()">Reiniciar juego</button>
+                    
+                    <div class="game-feedback" id="word-feedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ventana de Juego de Plataformas -->
+        <div id="juego-plataformas" class="content-window">
+            <div class="content-header">
+                <h2>AVENTURA ÓPTICA</h2>
+                <button class="back-btn" onclick="showContent('none')">Volver</button>
+            </div>
+            <div class="content-body">
+                <div class="platform-game-container">
+                    <h3>Lleva al científico al cofre del conocimiento</h3>
+                    <div class="game-instructions">
+                        <p>Usa las flechas ← → para moverte y la barra espaciadora para saltar</p>
+                    </div>
+                    
+                    <div class="game-canvas-container">
+                        <canvas id="gameCanvas" width="800" height="400"></canvas>
+                    </div>
+                    
+                    <div class="game-controls">
+                        <button class="game-btn" onclick="startGame()">Iniciar Juego</button>
+                        <button class="game-btn" onclick="resetPlatformGame()">Reiniciar</button>
+                    </div>
+                    
+                    <div class="chest-question" id="chest-question" style="display: none;">
+                        <h3>¡Pregunta del cofre del conocimiento!</h3>
+                        <p>Cuando un rayo de luz pasa del aire al agua y se desvía hacia la normal, esto se debe a:</p>
+                        <div class="options">
+                            <button class="quiz-btn" onclick="checkChestAnswer(this, 'a')">Disminución de la velocidad de la luz</button>
+                            <button class="quiz-btn" onclick="checkChestAnswer(this, 'b')">Aumento de la velocidad de la luz</button>
+                            <button class="quiz-btn" onclick="checkChestAnswer(this, 'c')">Reflexión total de la luz</button>
+                            <button class="quiz-btn" onclick="checkChestAnswer(this, 'd')">Absorción completa de la luz</button>
+                        </div>
+                        <p id="chest-feedback" class="feedback"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ventana de Difracción -->
+        <div id="difraccion" class="content-window">
+            <div class="content-header">
+                <h2>DIFRACCIÓN DE LA LUZ</h2>
+                <button class="back-btn" onclick="showContent('none')">Volver</button>
+            </div>
+            <div class="content-body">
+                <div class="content-text">
+                    <h3>Fenómeno Ondulatorio</h3>
+                    <p>La difracción ocurre cuando una onda luminosa se curva alrededor de un obstáculo o a través de una abertura. Fue crucial para demostrar el comportamiento ondulatorio de la luz, aunque es menos perceptible a simple vista.</p>
+                    
+                    <h3>Contribuciones Históricas</h3>
+                    <p>Francesco Maria Grimaldi introdujo el término en el siglo XVII, y Augustin-Jean Fresnel desarrolló modelos matemáticos detallados.</p>
+                    
+                    <h3>Interferencia de la Luz</h3>
+                    <p>Cuando la luz pasa por rendijas u obstáculos muy pequeños, se producen frentes de onda que se curvan y se superponen. Esta superposición genera interferencia, con zonas brillantes (máximos constructivos) y oscuras (mínimos destructivos).</p>
+                    
+                    <h4>Fórmulas de Interferencia</h4>
+                    <p>Interferencia constructiva (máximos): d·sinθ = m·λ</p>
+                    <p>Interferencia destructiva (mínimos): d·sinθ = (m + ½)·λ</p>
+                    <p>Donde d = distancia entre rendijas, λ = longitud de onda, m = orden del máximo.</p>
+                    
+                    <h3>Experimento de la Doble Rendija de Young (1801)</h3>
+                    <p>Es uno de los experimentos más famosos en la historia de la física. Thomas Young demostró que la luz tiene propiedades ondulatorias al hacer pasar luz coherente a través de dos rendijas cercanas, observando un patrón de interferencia en una pantalla.</p>
+                </div>
+                <div class="content-media">
+                    <img src="img/difra.jpg" alt="Difracción de la luz" class="content-img">
+                    <img src="img/young.jpg" alt="Experimento de Young" class="content-img">
+                    <div class="video-container">
+                        <iframe width="100%" height="250" src="img/Difraccion.mp4" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-section">
+                <h3>PREGUNTAS INTERACTIVAS</h3>
+                <p>¿Qué demostró el experimento de la doble rendija de Young?</p>
+                <div class="options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'young1', 'correct')">Que la luz tiene naturaleza ondulatoria</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'young1', 'incorrect')">Que la luz viaja en línea recta</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'young1', 'incorrect')">Que la luz es solo partícula</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'young1', 'incorrect')">Que la luz no se puede difractar</button>
+                </div>
+                <p id="feedback-young1" class="feedback"></p>
+
+                <p>¿Qué patrón se observa en el experimento de la doble rendija?</p>
+                <div class="options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'young2', 'incorrect')">Un punto brillante</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'young2', 'correct')">Franjas alternadas brillantes y oscuras</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'young2', 'incorrect')">Un círculo de luz</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'young2', 'incorrect')">Una línea continua</button>
+                </div>
+                <p id="feedback-young2" class="feedback"></p>
+            </div>
+        </div>
+
+        <!-- Ventana de Aplicaciones -->
+        <div id="aplicaciones" class="content-window">
+            <div class="content-header">
+                <h2>APLICACIONES DE LA ÓPTICA</h2>
+                <button class="back-btn" onclick="showContent('none')">Volver</button>
+            </div>
+            <div class="content-body">
+                <div class="content-text">
+                    <h3>Instrumentos Ópticos</h3>
+                    
+                    <h4>Ojo humano</h4>
+                    <p>Lente natural: cristalino. Diafragma: pupila. Retina: pantalla receptora. Defectos comunes: miopía, hipermetropía, astigmatismo, presbicia.</p>
+                    
+                    <h4>Microscopio simple</h4>
+                    <p>Básicamente una lente convergente que amplía objetos pequeños. Ejemplo: lupa.</p>
+                    
+                    <h4>Telescopio</h4>
+                    <p>Refractor: usa lentes para recoger luz. Reflector: usa espejos cóncavos. Sirven para observar objetos muy lejanos.</p>
+                    
+                    <h4>Cámara fotográfica</h4>
+                    <p>Similar al ojo humano: Lente → enfoca. Diafragma → controla la entrada de luz. Sensor o película → forma la imagen.</p>
+                    
+                    <h3>Aplicaciones de la Difracción</h3>
+                    
+                    <h4>Espectroscopia</h4>
+                    <p>Se usan redes de difracción para separar la luz en colores (espectro). Permite identificar elementos químicos (cada elemento emite/absorbe longitudes de onda específicas). Usos: astronomía, análisis químico, medicina.</p>
+                    
+                    <h4>Análisis de materiales</h4>
+                    <p>La difracción de rayos X permite conocer la estructura cristalina de sólidos. Técnica clave en biología: permitió descubrir la estructura del ADN (foto 51 de Rosalind Franklin).</p>
+                    
+                    <h4>Discos compactos (CD/DVD/Blu-ray)</h4>
+                    <p>La superficie tiene ranuras microscópicas que actúan como una red de difracción. El láser que los lee se basa en la interferencia de la luz reflejada.</p>
+                    
+                    <h4>Hologramas</h4>
+                    <p>Los hologramas se producen gracias a la interferencia y difracción de la luz láser. Capturan no solo la intensidad de la luz, sino también la fase → permitiendo imágenes en 3D.</p>
+                </div>
+                <div class="content-media">
+                    <img src="img/instru.jpg" alt="Microscopio" class="content-img">
+                    <img src="img/ChatGPT Image 26 sept 2025, 17_44_05.jpg" alt="Telescopio" class="content-img">
+                    
+                </div>
+            </div>
+            <div class="quiz-section">
+                <h3>PREGUNTAS INTERACTIVAS</h3>
+                <p>¿Qué instrumento óptico utiliza espejos cóncavos para observar objetos lejanos?</p>
+                <div class="options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'aplica1', 'correct')">Telescopio reflector</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'aplica1', 'incorrect')">Microscopio compuesto</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'aplica1', 'incorrect')">Lupa</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'aplica1', 'incorrect')">Cámara fotográfica</button>
+                </div>
+                <p id="feedback-aplica1" class="feedback"></p>
+
+                <p>¿Qué aplicación de la difracción permitió descubrir la estructura del ADN?</p>
+                <div class="options">
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'aplica2', 'correct')">Difracción de rayos X</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'aplica2', 'incorrect')">Espectroscopia</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'aplica2', 'incorrect')">Holografía</button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, 'aplica2', 'incorrect')">Lectura de CDs</button>
+                </div>
+                <p id="feedback-aplica2" class="feedback"></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>ÓPTICA EN ACCIÓN</h3>
+                </div>
+                <div class="footer-social">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Óptica en Acción. Proyecto de Física. Los tres mosqueteros.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
